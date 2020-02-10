@@ -1,6 +1,6 @@
 Describe Rx.Operators
   Before all
-    let TIMEOUT = (!empty($APPVEYOR) || !empty($TRAVIS)) ? 5000 : 500
+    let TIMEOUT = !empty($CI) ? 5000 : 500
 
     let Promise = vital#vital#import('Async.Promise')
     let BufferObserver = vital#vital#import('Rx.Test.BufferObserver')
@@ -162,7 +162,7 @@ Describe Rx.Operators
     End
 
     It maps values and emits in favor of order
-      if !empty($APPVEYOR) || !empty($TRAVIS)
+      if !empty($CI)
         let ts = [500, 300, 100, 5000]
       else
         let ts = [50, 30, 10, 500]
@@ -209,7 +209,7 @@ Describe Rx.Operators
 
   Describe .delay()
     It delay emitted values by given time
-      if !empty($APPVEYOR) || !empty($TRAVIS)
+      if !empty($CI)
         let ts = [500, 1000]
       else
         let ts = [50, 100]
@@ -481,7 +481,7 @@ Describe Rx.Operators
     End
 
     It maps values and emits in favor of through-put
-      if !empty($APPVEYOR) || !empty($TRAVIS)
+      if !empty($CI)
         let ts = [500, 300, 100, 5000]
       else
         let ts = [50, 30, 10, 500]
@@ -602,7 +602,7 @@ Describe Rx.Operators
     End
 
     It multicast with standard Subject
-      if !empty($APPVEYOR) || !empty($TRAVIS)
+      if !empty($CI)
         let ts = [100, 1000]
       else
         let ts = [10, 100]
@@ -963,7 +963,7 @@ Describe Rx.Operators
 
   Describe .skip_until()
     It emits until provided observable emits [time-consuming]
-      if !empty($APPVEYOR) || !empty($TRAVIS)
+      if !empty($CI)
         let ts = [1000, 5100, 20000]
       else
         let ts = [100, 510, 2000]
@@ -1068,7 +1068,7 @@ Describe Rx.Operators
 
   Describe .take_until()
     It emits until provided observable emits [time-consuming]
-      if !empty($APPVEYOR) || !empty($TRAVIS)
+      if !empty($CI)
         let ts = [1000, 5100, 20000]
       else
         let ts = [100, 510, 2000]

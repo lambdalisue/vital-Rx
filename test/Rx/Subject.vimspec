@@ -1,6 +1,6 @@
 Describe Rx.Subject
   Before all
-    let TIMEOUT = (!empty($APPVEYOR) || !empty($TRAVIS)) ? 5000 : 500
+    let TIMEOUT = !empty($CI) ? 5000 : 500
 
     let BufferObserver = vital#vital#import('Rx.Test.BufferObserver')
   End
