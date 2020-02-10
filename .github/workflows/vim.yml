@@ -21,6 +21,11 @@ jobs:
           - nightly
           - v8.2.0235
           - v8.1.2424
+        exclude:
+          - os: macos-latest
+            version: nightly
+          - os: macos-latest
+            version: v8.2.0235
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v2
