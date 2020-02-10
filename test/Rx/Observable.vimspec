@@ -1,6 +1,6 @@
 Describe Rx.Observable
   Before all
-    let TIMEOUT = (!empty($APPVEYOR) || !empty($TRAVIS)) ? 5000 : 500
+    let TIMEOUT = !empty($CI) ? 5000 : 500
 
     let BufferObserver = vital#vital#import('Rx.Test.BufferObserver')
   End
@@ -74,7 +74,7 @@ Describe Rx.Observable
     End
 
     It emits sequential numbers on a given time-frame
-      if !empty($APPVEYOR) || !empty($TRAVIS)
+      if !empty($CI)
         let ts = [1000, 5100]
       else
         let ts = [100, 510]
@@ -99,7 +99,7 @@ Describe Rx.Observable
     End
 
     It emits 0 and complete after given duration
-      if !empty($APPVEYOR) || !empty($TRAVIS)
+      if !empty($CI)
         let ts = [1000, 5100]
       else
         let ts = [100, 510]
@@ -113,7 +113,7 @@ Describe Rx.Observable
     End
 
     It emits sequential numbers on a given time-frame after given duration
-      if !empty($APPVEYOR) || !empty($TRAVIS)
+      if !empty($CI)
         let ts = [5000, 1000, 5100, 5100]
       else
         let ts = [500, 100, 510, 510]

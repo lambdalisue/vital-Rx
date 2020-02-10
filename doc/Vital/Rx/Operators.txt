@@ -1,9 +1,6 @@
 *Vital/Rx/Operators.txt*	ReactiveX operators written in pure Vim script
 
 Author:  Alisue <lambdalisue@hashnote.net>
-License: MIT license
-Support: Vim 8.0.0000 and above
-Support: Neovim 0.2.0 and above
 
 
 =============================================================================
